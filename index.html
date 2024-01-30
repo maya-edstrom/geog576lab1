@@ -17,7 +17,7 @@
     "esri/widgets/BasemapGallery"
   ], function(esriConfig, Map, MapView, BasemapGallery) {
     
-    esriConfig.apiKey = "YOUR_API_KEY";
+    esriConfig.apiKey = "AAPK743426981581429cbb54c9d76b5e87221m_dimGOxaAXI1f9OThJm_cZ7jflHev4YxhlGpTn_Z-66wMY84jVXbPumN_6af-H";
 
     const map = new Map({ 
       basemap: "arcgis-imagery" // Basemap layer service 
@@ -30,13 +30,15 @@
       container: "viewDiv" // Div element
     });
 
-    const basemapGallery = new BasemapGallery({
-      view: view
-    });
+    view.when(function() {
+      const basemapGallery = new BasemapGallery({
+        view: view
+      });
 
-    // Add the widget to the top-right corner of the view
-    view.ui.add(basemapGallery, {
-      position: "top-right"
+      // Add the widget to the top-right corner of the view
+      view.ui.add(basemapGallery, {
+        position: "top-right"
+      });
     });
   });  
  </script>
