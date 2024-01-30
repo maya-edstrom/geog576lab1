@@ -17,33 +17,28 @@
     "esri/widgets/BasemapGallery"
   ], function(esriConfig, Map, MapView, BasemapGallery) {
     
-    esriConfig.apiKey = "AAPK743426981581429cbb54c9d76b5e87221m_dimGOxaAXI1f9OThJm_cZ7jflHev4YxhlGpTn_Z-66wMY84jVXbPumN_6af-H";
+    esriConfig.apiKey = "YOUR_API_KEY";
 
     const map = new Map({ 
       basemap: "arcgis-imagery" // Basemap layer service 
     });
 
- 
- const view = new MapView({
+    const view = new MapView({
       map: map,
-      center: [-91.0474, 46.8824],
-     // Longitude, latitude
+      center: [-91.0474, 46.8824], // Longitude, latitude
       zoom: 13, // Zoom level
       container: "viewDiv" // Div element
     });
-   
 
-  const basemapGallery = new BasemapGallery({
-        view: MapView,
-        container: basemapGalleryDiv
-    
+    const basemapGallery = new BasemapGallery({
+      view: view
     });
 
-// Add the widget to the top-right corner of the view
-view.ui.add(basemapGallery, {
-  position: "top-right"
-  });
-}); 
+    // Add the widget to the top-right corner of the view
+    view.ui.add(basemapGallery, {
+      position: "top-right"
+    });
+  });  
  </script>
 
 <style>  
@@ -54,14 +49,11 @@ view.ui.add(basemapGallery, {
       margin: 0;  
       height: 100%;  
       width: 100%;  
-      }  
-  </style> 
+  }  
+</style> 
 
 </head>
 <body>
-  
   <div id="viewDiv"></div>
-  <div id="basemapGalleryDiv"></div> 
-
 </body>
 </html>
