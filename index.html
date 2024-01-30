@@ -14,8 +14,9 @@
     "esri/config",
     "esri/Map",
     "esri/views/MapView",
-    "esri/widgets/BasemapGallery"
-  ], function(esriConfig, Map, MapView, BasemapGallery) {
+    "esri/widgets/BasemapGallery",
+    "esri/widgets/Locate"
+  ], function(esriConfig, Map, MapView, BasemapGallery, Locate) {
     
     esriConfig.apiKey = "AAPK743426981581429cbb54c9d76b5e87221m_dimGOxaAXI1f9OThJm_cZ7jflHev4YxhlGpTn_Z-66wMY84jVXbPumN_6af-H";
 
@@ -40,6 +41,16 @@
         position: "top-right"
       });
     });
+
+    let locateWidget = new Locate({
+  view: view,   // Attaches the Locate button to the view
+  graphic: new Graphic({
+    symbol: { type: "simple-marker" }  // overwrites the default symbol used for the
+    // graphic placed at the location of the user when found
+  })
+});
+
+view.ui.add(locateWidget, "top-right");
   });  
  </script>
 
