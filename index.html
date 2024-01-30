@@ -16,7 +16,8 @@
     "esri/views/MapView",
     "esri/widgets/BasemapGallery",
     "esri/widgets/Locate",
-    "esri/Graphic"
+    "esri/Graphic",
+    "esri/widgets/Search"
   ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Graphic) {
     
     esriConfig.apiKey = "YOUR_API_KEY";
@@ -52,6 +53,16 @@
     });
 
     view.ui.add(locateWidget, "top-right");
+
+    const searchWidget = new Search({
+  view: view
+});
+// Adds the search widget below other elements in
+// the top left corner of the view
+view.ui.add(searchWidget, {
+  position: "top-left",
+  index: 2
+});
     
   });  
  </script>
